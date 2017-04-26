@@ -1,0 +1,14 @@
+html
+  include ../partials/head.pug
+  body
+    a(href='/products')
+      p back
+    h1= product.title
+    p= product.description
+
+    include ../partials/foot.pug
+    
+//- <a href="/questions">Back</a>
+//-   <h1><%= question.title %></h1>
+//-   <p><%= question.description %></p>
+//-   <p><strong>Created at:</strong><%= question.createdAt %></p>

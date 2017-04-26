@@ -10,13 +10,13 @@ router.get('/', function(req, res, next) {
   // res.render('index', { title: 'Express' });
 });
 
-// router.get('/:id',function(req,res){
-//   const id = req.params.id;
-//
-//   Question.findById(id).then(function(question){
-//     res.render('questions/show', {question: question})
-//   })
-//
-// })
+router.get('/:id',function(req,res){
+  const id = req.params.id;
+
+  Product.findById(id).then(function(product){
+    res.render('products/show', {product: product})
+  })
+
+})
 
 module.exports = router;
