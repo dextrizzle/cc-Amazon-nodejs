@@ -1,0 +1,19 @@
+html
+  include ../partials/head.pug
+  body
+    a(href='/products')
+      p back
+    h1 new product
+    form(method='POST' action='/products')
+      div.form-group
+        label(for='title') Title:
+        input#name.form-control(type='text', name='title' value=product.title)
+      div.form-group
+        label(for='description') Description:
+        input#email.form-control(type='textarea', name='description' value=product.description)
+      div.form-group
+        label(for='price') Price:
+        input#favoriteBook.form-control(type='text', name='price' value=product.price)
+      button.btn.btn-primary(type='submit') Create
+
+    include ../partials/foot.pug

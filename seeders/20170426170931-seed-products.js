@@ -14,6 +14,7 @@ const products = Array
       description: faker.hacker.phrase(),
       price: 22.50
     })
+    .catch(function(error){ console.log('duplicate question!') });
   })
 
 module.exports = {
@@ -34,12 +35,6 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('Person', null, {});
-    */
+    return queryInterface.bulkDelete('Products', null, {});
   }
 };

@@ -5,7 +5,34 @@ html
       p back
     h1= product.title
     p= product.description
+    p= product.price
+    
+    a(href='/products/'+product.id+'/edit')
+      p edit
+    form(method='POST' action='/products/'+product.id)
+      input(type='hidden' name='_method' value='delete')
+      input(type='submit' value='Delete')
+    
+    h2 reviews
+    
+    form(method='POST' action='/products/'+product.id+'/reviews')
+      div
+        label(for='content') content:
+        textarea(id='content' name='content')
+      div
 
+      button.btn.btn-primary(type='submit') Create
+      
+    ul(class='reviews-list')
+      each review in reviews.length ? reviews : ['There are no reviews']
+        li
+          p= review.content
+          p= review.createdAt
+          
+          form(method='POST' action='/products/'+product.id+'/reviews/'+review.id)
+            input(type='hidden' name='_method' value='delete')
+            input(type='submit' value='Delete')
+    
     include ../partials/foot.pug
     
 //- <a href="/questions">Back</a>

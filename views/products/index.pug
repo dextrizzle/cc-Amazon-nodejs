@@ -14,6 +14,8 @@ html
   include ../partials/head.pug
   body
     h1 Products
+    a(href='/products/new')
+      p new product
     ul.products-list
       each product in products.length ? products : ['There are no products']
         li

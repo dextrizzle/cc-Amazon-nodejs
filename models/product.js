@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
+        Product.hasMany(models.Review)
         // associations can be defined here
       }
     }
